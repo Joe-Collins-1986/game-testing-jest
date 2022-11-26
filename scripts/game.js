@@ -52,7 +52,17 @@ function lightsOn(circ) {
 }
 
 function playerTurn() {
-    
+   let i = game.playerMoves.length - 1;
+   if (game.currentGame[i] === game.playerMoves[i]) {
+    if(game.currentGame.length == game.playerMoves.length) {
+        game.score ++;
+        showScore();
+        addTurn();
+        }
+    } else {
+        window.alert("Wrong Move!");
+        newGame();
+    };
 }
 
 function showScore() {
@@ -60,4 +70,4 @@ function showScore() {
 }
 
 
-module.exports = { game, newGame, showScore, addTurn, lightsOn, showTurns};
+module.exports = { game, newGame, showScore, addTurn, lightsOn, showTurns, playerTurn};
